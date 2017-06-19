@@ -1,0 +1,26 @@
+server:
+  port: 8080
+  address: 127.0.0.1
+spring:
+  datasource:
+    url: jdbc:mysql://192.168.13.110:3306/spring
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 890610
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  application:
+    name: microserver-producer-user #定义服务注册到eureka上的application名称
+eureka:
+  client:
+######################################
+    healthcheck:
+      enabled: true  #配置健康检查
+#####################################
+    serviceUrl:
+      defaultZone: http://root:890610@localhost:82/eureka #eureka的服务地址 相当于ZK的地址
+#  instance:
+#      instanceId: ${spring.application.name}:${server.port} #实例名称 在web界面中会有显示
+#      prefer-ip-address: true #使用IP 作为地址
