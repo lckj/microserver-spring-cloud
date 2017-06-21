@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8082
   address: 127.0.0.1
 spring:
   datasource:
@@ -12,7 +12,7 @@ spring:
       ddl-auto: update
     show-sql: true
   application:
-    name: microserver-producer-user #定义服务注册到eureka上的application名称
+    name: microserver-producer-user2 #定义服务注册到eureka上的application名称
 eureka:
   client:
 ######################################

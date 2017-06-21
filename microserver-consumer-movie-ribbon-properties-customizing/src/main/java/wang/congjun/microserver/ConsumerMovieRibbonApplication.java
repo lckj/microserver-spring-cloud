@@ -18,9 +18,6 @@ import wang.congjun.config.RibbonConfugration;
 @SpringBootApplication
 @EnableEurekaClient
 //自定义ribbonclient的配置 配置的信息在RibbonConfugration这个类中（这个类不能在Spring扫描的范围内）
-@RibbonClient(name = "microserver-producer-user" , configuration = RibbonConfugration.class)
-//配置自定义Spring扫描包
-@ComponentScan(excludeFilters = {@ComponentScan.Filter(type= FilterType.ANNOTATION ,value = ExcludeScan.class)})
 public class ConsumerMovieRibbonApplication {
 
 	@Bean
