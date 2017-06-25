@@ -1,0 +1,49 @@
+#server:
+#  port: 82
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://root:890610@localhost:82/eureka #认证：1、在host前加上“user:password@”表示登录或调用该服务时需要认证
+##这两个是把eureka当做服务  不当做客户端
+#    register-with-eureka: false
+#    fetch-registry: false
+#认证：2、这里是与前面认证匹配在一起的 3、pom中添加spring-cloud-starter-security
+spring:
+  profiles:
+    active: peer1
+#  application:
+#    name: eurekaha
+security:
+  basic:
+    enabled: true
+  user:
+    name: root
+    password: 890610
+
+---
+spring:
+  profiles: peer1
+  application:
+    name: eurekaha1
+server:
+  port: 82
+eureka:
+  instance:
+    hostname: peer1
+  client:
+    serviceUrl:
+      defaultZone: http://root:890610@peer2:83/eureka
+
+---
+spring:
+  profiles: peer2
+  application:
+    name: eurekaha2
+server:
+  port: 83
+eureka:
+  instance:
+    hostname: peer2
+  client:
+    serviceUrl:
+      defaultZone: http://root:890610@peer1:82/eureka
