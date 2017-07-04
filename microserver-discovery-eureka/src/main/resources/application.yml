@@ -1,6 +1,8 @@
 server:
   port: 82
 eureka:
+  datacenter: cloud2
+  environment: product
   client:
     service-url:
       defaultZone: http://root:890610@localhost:82/eureka #认证：1、在host前加上“user:password@”表示登录或调用该服务时需要认证
