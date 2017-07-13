@@ -1,5 +1,5 @@
 server:
-  port: 84
+  port: 81
 spring:
   datasource:
     password: 890610
